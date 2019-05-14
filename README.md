@@ -1,4 +1,4 @@
-# Aegon PDF-Service
+# PDF-Service
 
 ## Development Environment
 
