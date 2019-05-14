@@ -1,0 +1,12 @@
+{% spaceless %}
+    <table style="width:100%" cellspacing="0" cellpadding="2" border="0">
+        <tr>
+        {% for payback in paybacks %}
+            <td valign="middle" style="border-bottom: 1px solid #25a9df; {% if not loop.last %}border-right: 1px solid #25a9df; {% endif %}text-align: left; vertical-align: middle;">{{ payback.year }}</td>
+        {% endfor %}
+        </tr>
+    </table>
+    {% if footnote %}
+        <div style="font-style: italic; font-weight: normal; font-size: 12pt;"><i>{{ footnote }}</i></div>
+    {% endif %}
+{% endspaceless %}

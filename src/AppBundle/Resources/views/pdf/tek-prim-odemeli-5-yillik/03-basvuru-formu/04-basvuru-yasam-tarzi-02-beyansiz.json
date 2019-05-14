@@ -1,0 +1,18 @@
+{
+  "templateFile":"04-basvuru-yasam-tarzi-02-beyansiz.pdf",
+  "//pages":"Specific elements for every page should be placed here",
+  "pages":[
+    {
+      "areas":[
+        {
+          "type":"html",
+          "name":"htmlLifestyle",
+          "height":710.0,
+          "width":433.0,
+          "x":77.1,
+          "y":75.0
+        }
+      ]
+    }
+  ]
+}

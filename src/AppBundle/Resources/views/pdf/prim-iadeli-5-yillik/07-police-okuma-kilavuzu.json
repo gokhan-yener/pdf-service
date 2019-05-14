@@ -1,0 +1,21 @@
+{
+  "//defaults":"Default settings (can be overridden below)",
+  "defaults":{
+    "font":{
+      "family":"senticosansdt",
+      "stretching":90,
+      "style":"",
+      "size":12,
+      "color":{"r":44, "g":46, "b":131}
+    }
+  },
+  "//layoutAreas":"Layout elements that repeat on every page should be placed here",
+  "layoutAreas":[
+    {
+    }
+  ],
+  "//pagesConfigs":"Specific configurations for every page should be placed in the sub JSON files",
+  "pagesConfigs": {
+    "07-police-okuma-kilavuzu":"07-police-okuma-kilavuzu"
+  }
+}

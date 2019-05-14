@@ -1,0 +1,236 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    default_locale: en
+    default_locale_extended: en_US
+    locale: "%default_locale%"
+    app_name: 'Aegon PDF Service'
+    project_root_dir: '%kernel.root_dir%/../'
+    project_download_dir: '/web/download'
+    project_pdf_images_dir: '/web/images/pdf'
+    project_pdf_template_dir: '/src/AppBundle/Resources/views/pdf'
+    project_temp_dir: '/var/tmp'
+    project_sign_dir: '/web/sign'
+    web_download_dir: '/download'
+    web_pdf_images_dir: '/images/pdf'
+    insurance_slugs:
+        'odullu-birikim':              'Ödüllü Birikim Hayat Sigortası'
+        '5-5-odullu-birikim':          '5+5 Ödüllü Birikim Hayat Sigortası'
+        'egitim-icin-hayat-sigortasi': 'Eğitim İçin Hayat Sigortası'
+        'ferdi-kazali-prim-iadeli':    'Ferdi Kazalı Prim İadeli Hayat Sigortası'
+        'ferdi-kazali-prim-iadeli-fr':    'Sabit Kurlu Ferdi Kazalı Prim İadeli Hayat Sigortası'
+        'ferdi-kazali-prim-iadeli-euro': 'Ferdi Kazalı Prim İadeli Hayat Sigortası'
+        'grup-turuncu-elma':           'Grup Turuncu Elma Hayat Sigortası'
+        'odeme-guvence':               'Ödeme Güvence Sigortası'
+        'prim-iadeli':                 'Prim İadeli Hayat Sigortası'
+        'prim-iadeli-fr':              'Sabit Kurlu Prim İadeli Hayat Sigortası'
+        'prim-iadeli-euro':            'Prim İadeli Hayat Sigortası'
+        'prim-iadeli-3-yillik':        '3 Yıllık Prim İadeli Hayat Sigortası'
+        'prim-iadeli-3-yillik-fr':        '3 Yıllık Sabit Kurlu Prim İadeli Hayat Sigortası'
+        'prim-iadeli-5-yillik':        '5 yıllık Prim İadeli Hayat Sigortası'
+        'prim-iadeli-5-yillik-80-fr':        '5 Yıllık Sabit Kurlu Prim İadeli Hayat Sigortası'
+        'tek-prim-odemeli':            'Tek Prim Ödemeli Hayat Sigortası'
+        'tek-prim-odemeli-5-yillik':   '5 Yıllık Tek Prim Ödemeli Hayat Sigortası'
+        'turuncu-elma':                'Turuncu Elma Hayat Sigortası'
+        'ikinci-bahar':                'İkinci Bahar Hayat Sigortası'
+    pdf_type_slugs:
+        'requirements-confirmation': 'İhtiyaç Teyit Formu'
+        'offer-summary':             'Teklif Özeti'
+        'application-form':          'Başvuru Formu'
+        'information-form':          'Bilgilendirme Formu'
+        'terms':                     'Genel ve Özel Şartlar'
+        'insurance-policy':          'Poliçe'
+        'policy-manual':             'Poliçe Okuma Kılavuzu'
+    pdf_type_slugs_map_class:
+        'requirements-confirmation': 'RequirementsConfirmation'
+        'offer-summary':             'OfferSummary'
+        'application-form':          'ApplicationForm'
+        'information-form':          'InformationForm'
+        'terms':                     'Terms'
+        'insurance-policy':          'InsurancePolicy'
+        'policy-manual':             'PolicyManual'
+    pdf_type_slugs_map_internal:
+        'requirements-confirmation': '01-ihtiyac-teyit'
+        'offer-summary':             '02-teklif-ozet'
+        'application-form':          '03-basvuru-formu'
+        'information-form':          '04-bilgilendirme-formu'
+        'terms':                     '05-ozel-ve-genel-sartlar'
+        'insurance-policy':          '06-police'
+        'policy-manual':             '07-police-okuma-kilavuzu'
+    pdf_type_slugs_map_internal_titles:
+        '01-ihtiyac-teyit':          'İhtiyaç Teyit Formu'
+        '02-teklif-ozet':            'Teklif Özeti'
+        '03-basvuru-formu':          'Başvuru Formu'
+        '04-bilgilendirme-formu':    'Bilgilendirme Formu'
+        '05-ozel-ve-genel-sartlar':  'Genel ve Özel Şartlar'
+        '06-police':                 'Poliçe'
+        '07-police-okuma-kilavuzu':  'Poliçe Okuma Kılavuzu'
+    pdf_type_slugs_map_abbreviations:
+        '01-ihtiyac-teyit':          '01-ihtc'
+        '02-teklif-ozet':            '02-tklf'
+        '03-basvuru-formu':          '03-basv'
+        '04-bilgilendirme-formu':    '04-bilg'
+        '05-ozel-ve-genel-sartlar':  '05-sart'
+        '06-police':                 '06-polc'
+        '07-police-okuma-kilavuzu':  '07-klvz'
+    pdf_type_slugs_map_moreum_document_types:
+        '01-ihtiyac-teyit' :         'IHTIYAC_TEYIT'
+        '02-teklif-ozet':            'TEKLIF_OZET'
+        '03-basvuru-formu':          'HAYAT_BASVURU'
+        '04-bilgilendirme-formu':    'BILGILENDIRME'
+        '05-ozel-ve-genel-sartlar':  'OZELGENELSARTLAR'
+        '06-police':                 'POLICE'
+        '07-police-okuma-kilavuzu':  'POLICEOKUMAKLAVUZU'
+    pdf_type_slugs_model_class:
+        '01-ihtiyac-teyit':          'AppBundle\PdfModel\RequirementsConfirmationPdf'
+        '02-teklif-ozet':            'AppBundle\PdfModel\OfferSummaryPdf'
+        '03-basvuru-formu':          'AppBundle\PdfModel\ApplicationFormPdf'
+        '04-bilgilendirme-formu':    'AppBundle\PdfModel\InformationFormPdf'
+        '05-ozel-ve-genel-sartlar':  'AppBundle\PdfModel\TermsPdf'
+        '06-police':                 'AppBundle\PdfModel\PolicyPdf'
+        '07-police-okuma-kilavuzu':  'AppBundle\PdfModel\PolicyManualPdf'
+    pdf_type_slugs_decorator_class:
+        '01-ihtiyac-teyit':          'AppBundle\PdfDecorator\RequirementsConfirmationPdfDecorator'
+        '02-teklif-ozet':            'AppBundle\PdfDecorator\OfferSummaryPdfDecorator'
+        '03-basvuru-formu':          'AppBundle\PdfDecorator\ApplicationFormPdfDecorator'
+        '04-bilgilendirme-formu':    'AppBundle\PdfDecorator\InformationFormPdfDecorator'
+        '05-ozel-ve-genel-sartlar':  'AppBundle\PdfDecorator\TermsPdfDecorator'
+        '06-police':                 'AppBundle\PdfDecorator\PolicyPdfDecorator'
+        '07-police-okuma-kilavuzu':  'AppBundle\PdfDecorator\PolicyManualPdfDecorator'
+framework:
+    #esi: ~
+    #translator: { fallbacks: ['%locale%'] }
+    secret: '%secret%'
+    router:
+        resource: '%kernel.project_dir%/app/config/routing.yml'
+        strict_requirements: ~
+    form: ~
+    csrf_protection: ~
+    validation: { enable_annotations: true }
+    serializer: { enable_annotations: true }
+    default_locale: '%locale%'
+    trusted_hosts: ~
+    session:
+        # https://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+        handler_id: session.handler.native_file
+        save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
+    fragments: ~
+    http_method_override: true
+    assets: ~
+    php_errors:
+        log: true
+
+# Twig Configuration
+twig:
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    globals:
+        app_name: '%app_name%'
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver: '%database_driver%'
+        host: '%database_host%'
+        port: '%database_port%'
+        dbname: '%database_name%'
+        user: '%database_user%'
+        password: '%database_password%'
+        charset: UTF8
+        # if using pdo_sqlite as your database driver:
+        #   1. add the path in parameters.yml
+        #     e.g. database_path: '%kernel.project_dir%/var/data/data.sqlite'
+        #   2. Uncomment database_path in parameters.yml.dist
+        #   3. Uncomment next line:
+        #path: '%database_path%'
+
+    orm:
+        auto_generate_proxy_classes: '%kernel.debug%'
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: '%mailer_transport%'
+    host: '%mailer_host%'
+    username: '%mailer_user%'
+    password: '%mailer_password%'
+    spool: { type: memory }
+
+# NelmioApiDocBundle
+nelmio_api_doc:
+    areas:
+        path_patterns: # an array of regexps
+            - ^/api(?!/doc$)
+        # host_patterns:
+        #     - ^api\.
+    documentation:
+        # host: api.example.com
+        #basePath: "%kernel.project_dir%/src/AppBundle"
+        schemes: [http, https]
+        info:
+            title: '%app_name%'
+            description: Generate PDF Files for Insurance Applications
+            version: 1.2.2
+        # securityDefinitions:
+        #     Bearer:
+        #         type: apiKey
+        #         description: 'Value: Bearer {jwt}'
+        #         name: Authorization
+        #         in: header
+        # security:
+        #     - Bearer: []
+
+# FOSRestBundle
+fos_rest:
+    routing_loader:
+        default_format: json                            # All responses should be JSON formated
+        include_format: false                           # We do not include format in request, so that all responses
+                                                        # will eventually be JSON formated
+    format_listener:
+        rules:
+            - { path: ^/testing, priorities: [html], fallback_format: html, prefer_extension: false }
+            - { priorities: ['json', 'xml'], fallback_format: json, prefer_extension: false }
+    view:
+        view_response_listener: true
+# FOSElasticaBundle
+fos_elastica:
+    clients:
+        default:
+            host: '%elasticsearch_host%'
+            port: '%elasticsearch_port%'
+    indexes:
+        aegon_pdf:
+            finder: ~
+            client: default
+            types:
+                aegon_pdf:
+                    properties:
+                        id:
+                            type: integer
+                        moreumDocumentId: ~
+                        personalIdNumber: ~
+                        polId: ~
+                        policyNumber: ~
+                        insuranceSlug: ~
+                        pdfTypeSlug: ~
+                        dirName: ~
+                        fileName: ~
+                        jsonData: ~
+                        jsonProcessed: ~
+                        isArchivalRequired: ~
+                        createdAt: ~
+                        updatedAt: ~
+                    persistence:
+                        driver: orm
+                        model: AppBundle\Entity\Pdf
+                        finder: ~
+                        provider: ~
+                        listener: ~
+                        repository: Appbundle\Repository\PdfRepository
+

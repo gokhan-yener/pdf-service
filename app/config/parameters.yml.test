@@ -1,0 +1,28 @@
+# This file is a "template" of what your parameters.yml file should look like
+# Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
+# https://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
+parameters:
+    database_driver: pdo_mysql
+    database_host: mysql.aegon.com.tr
+    database_user: aegon_pdf_test_user
+    database_password: Tsua_2425
+    database_port: 3306
+    database_name: aegon_pdf_test
+
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: ~
+    mailer_password: ~
+    secret: 3dd49f3528427085c0b6cdd0a4d02ccd4ab881be
+
+    # Moreum Test Sunucusu
+    moreum_archival_wsdl: 'http://moreum-test.aegon.com.tr/TerraDocsWS/Archival.svc?wsdl'
+    moreum_retrieval_wsdl: 'http://moreum-test.aegon.com.tr/TerraDocsWS/Retrieval.svc?wsdl'
+
+    # Moreum Production Sunucusu
+    #moreum_archival_wsdl: 'http://10.184.33.34/TerraDocsWS/Archival.svc?wsdl'
+    #moreum_retrieval_wsdl: 'http://10.184.33.34/TerraDocsWS/Retrieval.svc?wsdl'
+
+    elasticsearch_host: 10.184.33.236
+    elasticsearch_port: 5000
+

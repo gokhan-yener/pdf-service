@@ -1,0 +1,14 @@
+.git
+.idea
+Dockerfile
+.DS_Store
+log/*
+web/download/*
+var/cache/*
+var/logs/*
+var/sessions/*
+var/tmp/*
+app/cache/*
+app/logs/*
+app/sessions/*
+app/tmp/*

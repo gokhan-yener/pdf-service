@@ -1,0 +1,30 @@
+version: '3'
+services:
+
+    php:
+        build: ./docker/php-fpm
+        ports:
+            - "9999:9000"
+        volumes:
+            - .:/var/www/symfony:cached
+            - ./log/symfony:/var/www/symfony/var/logs:cached
+        networks:
+            - default
+        extra_hosts:
+            - 'dockerhost:$DOCKERHOST'
+
+    nginx:
+        build: ./docker/nginx
+        ports:
+            - "8888:80"
+        links:
+            - php
+        volumes:
+            - .:/var/www/symfony:cached
+            - ./log/nginx/:/var/log/nginx:cached
+        networks:
+            - default
+        extra_hosts:
+            - 'dockerhost:$DOCKERHOST'
+            
+

@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+}
+
+#swagger-ui.api-platform .information-container.wrapper {
+    margin-bottom: 0;
+}
+
+.swagger-ui .scheme-container {
+    padding-bottom: 20px;
+}

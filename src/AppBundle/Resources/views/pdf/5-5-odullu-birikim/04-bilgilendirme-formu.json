@@ -1,0 +1,49 @@
+{
+  "//defaults":"Default settings (can be overridden below)",
+  "defaults":{
+    "font":{
+      "family":"senticosansdt",
+      "stretching":90,
+      "style":"",
+      "size":12,
+      "color":{"r":44, "g":46, "b":131}
+    }
+  },
+  "//layoutAreas":"Layout elements that repeat on every page should be placed here",
+  "layoutAreas":[
+    {
+      "type":"image",
+      "name":"indexLink",
+      "x":270.4,
+      "y":806.7,
+      "width":51.6,
+      "height":30.0
+    },
+    {
+      "type":"paging",
+      "name":"pages",
+      "format":"{{currentPage}}/{{totalPages}}",
+      "x":9.0,
+      "y":807.0,
+      "width":24.9,
+      "height":14.9,
+      "align":"C",
+      "font":{
+        "size":10,
+        "stretching":80
+      }
+    },
+    {
+      "type":"image",
+      "name":"initials",
+      "x":530.0,
+      "y":789.0,
+      "width":55.0,
+      "height":40.0
+    }
+  ],
+  "//pagesConfigs":"Specific configurations for every page should be placed in the sub JSON files",
+  "pagesConfigs": {
+    "04-bilgilendirme-formu":"04-bilgilendirme-formu"
+  }
+}

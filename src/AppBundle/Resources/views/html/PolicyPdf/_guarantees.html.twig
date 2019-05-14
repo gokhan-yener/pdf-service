@@ -1,0 +1,14 @@
+{% spaceless %}
+    <table style="width:100%" cellspacing="0" cellpadding="1" border="0">
+        {% for guarantee in guarantees %}
+            <tr>
+                <td valign="middle" style="border-bottom: 1px solid #25a9df; border-right: 1px solid #25a9df; text-align: left; vertical-align: middle;">{{ guarantee.title }}</td>
+                <td valign="middle" style="border-bottom: 1px solid #25a9df; border-right: 1px solid #25a9df; text-align: center; vertical-align: middle;">{{ guarantee.price }}</td>
+                <td valign="middle" style="border-bottom: 1px solid #25a9df; text-align: center; vertical-align: middle;">{{ guarantee.endorsed }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% if footnote %}
+        <div style="font-style: italic;"><i>{{ footnote }}</i></div>
+    {% endif %}
+{% endspaceless %}

@@ -1,0 +1,17 @@
+# The user which has to run this script
+DEPLOYMENT_USER='root'
+
+# The user and group of the webserver
+WWW_USER_WEB="www-data"
+WWW_GROUP_WEB="www-data"
+
+# The group of the blog directory
+WWW_GROUP_BLOG="staff"
+
+# The remote hosts to which the deployment is done
+# e.g.: hosts_web_deploy=("fe01.cvlogin.com" "fe02.cvlogin.com")
+hosts_web_deploy=("fe01.cvlogin.com")
+
+# post deployment info to new relic
+REVISION="$(git rev-parse --short HEAD)"
+CURRENTDIR="${PWD##*/}"

@@ -1,0 +1,141 @@
+{% spaceless %}
+    <table style="width:100%" cellspacing="0" cellpadding="0" border="0">
+
+        {% if vars.smoking is defined %}
+            <tr>
+                <td style="width:7%; text-align: left;"><img src="{{ vars.smoking.imgNumber }}" width="16"></td>
+                <td style="width:93%; text-align: left;">
+                    Sigara kullanıyor musunuz?<br>
+                    &nbsp; <img src="{{ vars.smoking.imgYesNo }}" width="26">
+                    {% if vars.smoking.numSmokingPerDay is defined %}
+                        <br>
+                        Günlük içtiğiniz sigara adedi nedir? &nbsp;&nbsp;&nbsp; {{ vars.smoking.numSmokingPerDay }}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr><td></td><td></td></tr>
+        {% endif %}
+
+        {% if vars.drinking is defined %}
+            <tr>
+                <td style="width:7%; text-align: left;"><img src="{{ vars.drinking.imgNumber }}" width="16"></td>
+                <td style="width:93%; text-align: left;">
+                    Alkol kullanıyor musunuz?<br>
+                    &nbsp; <img src="{{ vars.drinking.imgYesNo }}" width="26">
+                    {% if vars.drinking.drinkingPeriod is defined %}
+                        <br>
+                        Kullanım sıklığınız nedir?<br>
+                        {{ vars.drinking.drinkingPeriod }}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr><td></td><td></td></tr>
+        {% endif %}
+
+        {% if vars.sports is defined %}
+            <tr>
+                <td style="width:7%; text-align: left;"><img src="{{ vars.sports.imgNumber }}" width="16"></td>
+                <td style="width:93%; text-align: left;">
+                    Herhangi bir tehlikeli aktivite ya da spor dalıyla uğraşıyor musunuz?<br>
+                    &nbsp; <img src="{{ vars.sports.imgYesNo }}" width="26">
+                    {% if vars.sports.sportsExplanation is defined %}
+                        <br>
+                        Cevabınız evet ise açıklayınız:<br>
+                        {{ vars.sports.sportsExplanation }}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr><td></td><td></td></tr>
+        {% endif %}
+
+        {% if vars.army is defined %}
+            <tr>
+                <td style="width:7%; text-align: left;"><img src="{{ vars.army.imgNumber }}" width="16"></td>
+                <td style="width:93%; text-align: left;">
+                    Askerlik yaptınız mı? (erkekler içindir / cevabınız hayır ise açıklayınız.)<br>
+                    &nbsp; <img src="{{ vars.army.imgYesNo }}" width="26">
+                    {% if vars.army.imgStatus is defined %}
+                        <br><img src="{{ vars.army.imgStatus }}"><br>
+                        <table style="width:100%" cellspacing="0" cellpadding="0" border="0">
+                            <tr>
+                                <td style="width:30%; text-align: center;">
+                                    Muaf
+                                </td>
+                                <td style="width:30%; text-align: center;">
+                                    Tecilli
+                                </td>
+                                <td style="width:33%; text-align: center;">
+                                    Zamanı gelmedi
+                                </td>
+                            </tr>
+                        </table>
+                    {% endif %}
+                    {% if vars.army.armyExplanation is defined %}
+                        <br>
+                        {{ vars.army.armyExplanation }}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr><td></td><td></td></tr>
+        {% endif %}
+
+        {% if vars.body is defined %}
+            <tr>
+                <td style="width:7%; text-align: left;"><img src="{{ vars.body.imgNumber }}" width="16"></td>
+                <td style="width:93%; text-align: left;">
+                    <table style="width:100%" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td style="width:7%;">
+                                &nbsp; <img src="{{ vars.body.imgBody }}" width="60">
+                            </td>
+                            <td>
+                                Boy: {{ vars.body.height }}<br>
+                                Kilo: {{ vars.body.weight }}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr><td></td><td></td></tr>
+        {% endif %}
+
+        {% if vars.education is defined %}
+            <tr>
+                <td style="width:7%; text-align: left;"><img src="{{ vars.education.imgNumber }}" width="16"></td>
+                <td style="width:93%; text-align: left;">
+                    Eğitim Durumunuz?<br>
+                    {{ vars.education.answer }}
+                </td>
+            </tr>
+            <tr><td></td><td></td></tr>
+        {% endif %}
+
+        {% if vars.profession is defined %}
+            <tr>
+                <td style="width:7%; text-align: left;"><img src="{{ vars.profession.imgNumber }}" width="16"></td>
+                <td style="width:93%; text-align: left;">
+                    Mesleğiniz?<br>
+                    {{ vars.profession.answer }}
+                </td>
+            </tr>
+            <tr><td></td><td></td></tr>
+        {% endif %}
+
+        {% if vars.travelling is defined %}
+            <tr>
+                <td style="width:7%; text-align: left;"><img src="{{ vars.travelling.imgNumber }}" width="16"></td>
+                <td style="width:93%; text-align: left;">
+                    Türkiye dışına seyahat eder misiniz?<br>
+                    &nbsp; <img src="{{ vars.travelling.imgYesNo }}" width="26">
+                    {% if vars.travelling.travellingExplanation is defined %}
+                        <br>
+                        Cevabınız evet ise hangi ülkeler olduğunu belirtiniz:<br>
+                        {{ vars.travelling.travellingExplanation }}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr><td></td><td></td></tr>
+        {% endif %}
+
+    </table>
+{% endspaceless %}

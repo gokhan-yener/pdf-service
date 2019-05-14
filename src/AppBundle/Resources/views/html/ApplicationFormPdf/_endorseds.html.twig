@@ -1,0 +1,11 @@
+{% spaceless %}
+    <table style="width:100%" cellspacing="0" cellpadding="0" border="0">
+        {% for endorsed in endorseds %}
+            <tr>
+                <td style="width: 45%; text-align: left;">{{ endorsed.name }}</td>
+                <td style="width: 30%; text-align: left;">{{ endorsed.personal_id_number }}</td>
+                <td style="width: 25%; text-align: left;">{{ endorsed.percent }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endspaceless %}

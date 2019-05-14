@@ -1,0 +1,13 @@
+{% spaceless %}
+    <table style="width:100%" cellspacing="0" cellpadding="3" border="0">
+        {% for detail in details %}
+            <tr>
+                <td style="border-bottom: 1px solid #25a9df; font-weight: bold;">{{ detail.label }}</td>
+                <td style="border-bottom: 1px solid #25a9df; text-align: right;">{{ detail.detail }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% if footnote %}
+        <div style="font-style: italic; font-weight: normal; font-size: 12pt;"><i>{{ footnote }}</i></div>
+    {% endif %}
+{% endspaceless %}

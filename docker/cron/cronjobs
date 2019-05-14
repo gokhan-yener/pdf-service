@@ -1,0 +1,4 @@
+# Crontab for root
+
+# Archive latest (unarchived) PDF files to Moreum
+*/5 * * * * /usr/bin/php /var/www/symfony/bin/console app:moreum:archival --env=prod >> /var/log/cron/cron.log 2>&1

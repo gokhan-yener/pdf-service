@@ -1,0 +1,20 @@
+{% spaceless %}
+    <table style="width:100%" cellspacing="0" cellpadding="2" border="0">
+        {% for row in data %}
+            <tr>
+                <td style="border-bottom: 1px solid #ddd; font-size: 12px; text-align: left;">{{ header.beforeTitle }}</td>
+                <td style="border-bottom: 1px solid #ddd; font-size: 12px; font-weight: bold; text-align: right;">{{ row.feeBefore }}</td>
+            </tr>
+
+            <tr>
+                <td style="border-bottom: 1px solid #ddd; font-size: 12px; text-align: left;">{{ header.percentTitle }}</td>
+                <td style="border-bottom: 1px solid #ddd; font-size: 12px; font-weight: bold; text-align: right;">{{ row.feePercent }}</td>
+            </tr>
+
+            <tr>
+                <td style="border-bottom: 1px solid #ddd; font-size: 12px; text-align: left;">{{ header.afterTitle }}</td>
+                <td style="border-bottom: 1px solid #ddd; font-size: 12px; font-weight: bold; text-align: right;">{{ row.feeAfter }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endspaceless %}

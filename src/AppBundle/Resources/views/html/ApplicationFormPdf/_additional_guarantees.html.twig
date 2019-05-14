@@ -1,0 +1,18 @@
+{% spaceless %}
+    <table style="width:100%" cellspacing="0" cellpadding="2" border="0">
+        <tr>
+            <td style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd; width: 40%; font-weight: bold; text-align: center;">{{ header.nameTitle }}</td>
+            <td style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd; width: 20%; font-weight: bold; text-align: center;">{{ header.beforeTitle }}</td>
+            <td style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd; width: 20%; font-weight: bold; text-align: center;">{{ header.percentTitle }}</td>
+            <td style="border-bottom: 1px solid #ddd; width: 20%; font-weight: bold; text-align: center;">{{ header.afterTitle }}</td>
+        </tr>
+        {% for row in data %}
+            <tr>
+                <td style="{% if not loop.last %}border-bottom: 1px solid #ddd; {% endif %}border-right: 1px solid #ddd; text-align: center;">{{ row.name }}</td>
+                <td style="{% if not loop.last %}border-bottom: 1px solid #ddd; {% endif %}border-right: 1px solid #ddd; text-align: center;">{{ row.feeBefore }}</td>
+                <td style="{% if not loop.last %}border-bottom: 1px solid #ddd; {% endif %}border-right: 1px solid #ddd; text-align: center;">{{ row.feePercent }}</td>
+                <td style="{% if not loop.last %}border-bottom: 1px solid #ddd; {% endif %}text-align: center;">{{ row.feeAfter }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endspaceless %}

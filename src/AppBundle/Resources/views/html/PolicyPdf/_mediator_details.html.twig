@@ -1,0 +1,10 @@
+{% spaceless %}
+    <table style="width:100%" cellspacing="0" cellpadding="3" border="0">
+        {% for detail in details %}
+            <tr>
+                <td style="{% if not loop.last %}border-bottom: 1px solid #25a9df; {% endif %}font-weight: bold;">{{ detail.label }}</td>
+                <td style="{% if not loop.last %}border-bottom: 1px solid #25a9df; {% endif %}text-align: right;">{{ detail.detail }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endspaceless %}

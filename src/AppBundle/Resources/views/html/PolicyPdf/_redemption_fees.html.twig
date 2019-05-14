@@ -1,0 +1,22 @@
+{% spaceless %}
+    <table style="width:100%" cellspacing="0" cellpadding="2" border="0">
+        <tr>
+            <td style="width:10%; border-bottom: 1px solid #25a9df; border-right: 1px solid #25a9df; text-align: center; font-weight: bold;">Sigorta<br>Ayı</td>
+            <td style="width:20%; border-bottom: 1px solid #25a9df; border-right: 1px solid #25a9df; text-align: center; font-weight: bold;">Kümülatif<br>Yıllık Prim</td>
+            <td style="width:20%; border-bottom: 1px solid #25a9df; border-right: 1px solid #25a9df; text-align: center; font-weight: bold;">Matematik<br>Karşılık</td>
+            <td style="width:20%; border-bottom: 1px solid #25a9df; border-right: 1px solid #25a9df; text-align: center; font-weight: bold;">İştira Kesinti<br>Oranı</td>
+            <td style="width:20%; border-bottom: 1px solid #25a9df; border-right: 1px solid #25a9df; text-align: center; font-weight: bold;">İştira Kesinti<br>Tutarı</td>
+            <td style="width:10%; border-bottom: 1px solid #25a9df; text-align: center; font-weight: bold;">İştira<br>Bedeli</td>
+        </tr>
+        {% for fee in fees %}
+            <tr>
+                <td style="{% if not loop.last %}border-bottom: 1px solid #25a9df; {% endif %}border-right: 1px solid #25a9df; text-align: right;">{{ fee.insuranceMonth }}</td>
+                <td style="{% if not loop.last %}border-bottom: 1px solid #25a9df; {% endif %}border-right: 1px solid #25a9df; text-align: right;">{{ fee.cumulativeYearlyFee }}&nbsp;&nbsp;</td>
+                <td style="{% if not loop.last %}border-bottom: 1px solid #25a9df; {% endif %}border-right: 1px solid #25a9df; text-align: right;">{{ fee.mathematicalCounterpart }}&nbsp;&nbsp;</td>
+                <td style="{% if not loop.last %}border-bottom: 1px solid #25a9df; {% endif %}border-right: 1px solid #25a9df; text-align: right;">{{ fee.redemptionDeductionRate }}&nbsp;&nbsp;</td>
+                <td style="{% if not loop.last %}border-bottom: 1px solid #25a9df; {% endif %}border-right: 1px solid #25a9df; text-align: right;">{{ fee.redemptionDeductionPrice }}&nbsp;&nbsp;</td>
+                <td style="{% if not loop.last %}border-bottom: 1px solid #25a9df; {% endif %}text-align: right;">{{ fee.redemptionPrice }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endspaceless %}

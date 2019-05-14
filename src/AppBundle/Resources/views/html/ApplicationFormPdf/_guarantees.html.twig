@@ -1,0 +1,13 @@
+{% spaceless %}
+    <table style="width:100%" cellspacing="0" cellpadding="2" border="0">
+        {% for guarantee in guarantees %}
+            <tr>
+                <td style="{{ guarantee.left.style }}">{{ guarantee.left.text }}</td>
+                <td style="{{ guarantee.right.style }}">{{ guarantee.right.text }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% if guarantees_explanation %}
+    {{ guarantees_explanation }}
+{% endif %}
+{% endspaceless %}

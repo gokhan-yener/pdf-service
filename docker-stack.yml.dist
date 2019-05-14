@@ -1,0 +1,39 @@
+
+version: '3'
+services:
+
+    app:
+        # ## parameters.yml => dev
+        # cp app/config/parameters.yml.dev app/config/parameters.yml
+        # docker build -t pdfservice -f Dockerfile .
+        # docker stack deploy pdfservice -c docker-stack.yml
+        #
+        # # get container id with: ```docker ps``` and run:
+        # docker exec -it <container-id> sh
+        #
+        # ## parameters.yml => test
+        # cp app/config/parameters.yml.test app/config/parameters.yml
+        # docker build -t registry.aegon.com.tr/pdfservice_test:1.3.2 -f Dockerfile .
+        #
+        # ## parameters.yml => prod
+        # cp app/config/parameters.yml.prod app/config/parameters.yml
+        # docker build -t registry.aegon.com.tr/pdfservice_prod:1.3.2 -f Dockerfile .
+        #
+        # ## login
+        # docker login registry.aegon.com.tr
+        #
+        # ## push test
+        # docker push registry.aegon.com.tr/pdfservice_test:1.3.2
+        #
+        # ## push prod
+        # docker push registry.aegon.com.tr/pdfservice_prod:1.3.2
+        image: registry.aegon.com.tr/pdfservice_prod:1.3.1
+        ports:
+            - "8888:80"
+        networks:
+            - kolaykatilim-pdf
+        volumes:
+            - /path/to/pdf/folder:/var/www/symfony/web/download
+networks:
+  kolaykatilim-pdf:
+    external: true

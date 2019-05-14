@@ -1,0 +1,12 @@
+{% spaceless %}
+    <div style="font-weight:bold; width:100%; margin-bottom: 5px;">Otomatik Ödeme</div>
+    <br>
+    <table style="width:100%" cellspacing="0" cellpadding="0" border="0">
+        {% for info in bankAccountInfos %}
+            <tr>
+                <td style="width: 35%; text-align: left;">{{ info.title }}</td>
+                <td style="width: 65%; text-align: left;">{{ info.value }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endspaceless %}

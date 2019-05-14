@@ -1,0 +1,13 @@
+{% extends '@Testing/layout.html.twig' %}
+
+{% block body %}
+    <div class="box box-solid box-default">
+        Hoşgeldiniz!
+        <div class="box-body">
+            Test sayfasına hoşgeldiniz!
+        </div>
+        <ul>
+            <li><a href="{{ path('testing.generate-pdf') }}">Generate PDF (splitted)</a></li>
+        </ul>
+    </div>
+{% endblock %}
